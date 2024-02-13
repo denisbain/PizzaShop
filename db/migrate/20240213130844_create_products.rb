@@ -11,6 +11,6 @@ class CreateProducts < ActiveRecord::Migration[7.1]
       t.string :path_to_image
 
       t.timestamps
+    end
   end
-  end
-  end
+end
