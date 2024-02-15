@@ -12,6 +12,8 @@ function add_to_cart(id)
 
     //Вывод количества item'ов в корзине
     alert('Items in your cart: ' + get_number_of_items());
+
+    update_orders_input();
 }
 
 function get_number_of_items()
@@ -31,6 +33,11 @@ function get_number_of_items()
     return cnt;
 }
 
+function update_orders_input()
+{
+    var orders = cart_get_orders();
+    $('#orders_input').val(orders);
+}
 function cart_get_orders()
 {
     var orders = '';
