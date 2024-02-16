@@ -1,5 +1,5 @@
 function cart_clear() {
-    alert('Clear cart');
+    window.localStorage.clear()
 }
 
 function add_to_cart(id)
