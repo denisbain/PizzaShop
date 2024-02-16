@@ -40,13 +40,14 @@
 			      <li><a href="/contacts">Contacts</a></li>
 			    </ul>
 					<ul class="nav navbar-nav navbar-right">
-        <li>
-						<form action="/cart" method="post">
-						<input id='orders_input' name='orders' type="hidden">
-						<input id='orders_button' type="submit" class="btn btn-primary btn-lg" value="Cart (...)">
-					</form>
-				</li>
-      </ul>
+        		<li>
+							<form action="/cart" method="post">
+								<input id='orders_input' name='orders' type="hidden">
+								<input id='clear_cart' type="submit" class="btn btn-danger btn-lg" value="Clear cart" onclick="cart_clear()">
+								<input id='orders_button' type="submit" class="btn btn-primary btn-lg" value="Cart (...)">
+							</form>
+						</li>
+      		</ul>
 			  </div><!--/.nav-collapse -->
 			</nav>
 

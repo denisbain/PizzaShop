@@ -1,5 +1,5 @@
-function something() {
-    alert('Hello');
+function cart_clear() {
+    alert('Clear cart');
 }
 
 function add_to_cart(id)
