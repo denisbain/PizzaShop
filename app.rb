@@ -20,8 +20,8 @@ end
 
 post '/cart' do
 
-	orders_input = params[:orders]
-	@items = parse_orders_input orders_input
+	@orders_input = params[:orders]
+	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
 		product_id = item[0].to_i
