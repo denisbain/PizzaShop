@@ -1,7 +1,37 @@
 <h2>List of items</h2>
-<% @items.each do |item| %>
-  <% product_id = item[0].to_i %>
-  <% product = Product.find(product_id) %>
-  <p>ID: <%= product.id %>, Title: <%= product.title %>, Count: <%= item[1] %></p>
-<% end %>
 
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Qty</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% total_price = 0 %>
+  <% total_qty = 0 %>
+  <% @items.each do |item| %>
+    <% product_id = item[0].to_i %>
+    <% product = Product.find(product_id) %>
+    <tr>
+      <th scope="row"><%= product.id %></th>
+      <td><%= product.title %></td>
+      <td><%= product.price %></td>
+      <td><%= item[1] %></td>
+    </tr>
+    <% total_price += product.price * item[1].to_i  %>
+    <% total_qty += item[1].to_i  %>
+  <% end %>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td><%= total_price %></td>
+    <td><%= total_qty %></td>
+  </tr>
+
+  </tbody>
+</table>
