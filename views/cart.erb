@@ -1,3 +1,7 @@
 <h2>List of items</h2>
-<%= @orders.inspect %>
+<% @items.each do |item| %>
+  <% product_id = item[0].to_i %>
+  <% product = Product.find(product_id) %>
+  <p>ID: <%= product.id %>, Title: <%= product.title %>, Count: <%= item[1] %></p>
+<% end %>
 
