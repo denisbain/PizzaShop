@@ -4,11 +4,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
+
 set :database, {adapter: "sqlite3", database: "pizzashop.db"}
 
 class Product < ActiveRecord::Base
 end
-
 class Order < ActiveRecord::Base
 end
 
@@ -32,7 +32,32 @@ post '/cart' do
 		item[0] = product.id if product # Убедитесь, что продукт найден
 	end
 
+
 	erb :cart
+end
+
+post '/place_order' do
+
+
+	order_params = params[:order]
+
+	# Создание нового заказа в базе данных
+	order = Order.create(
+		name: order_params[:name],
+		phone: order_params[:phone],
+		address: order_params[:address]
+	)
+
+	# Добавление элементов заказа к заказу
+	@items.each do |item|
+		product_id = item[0].to_i
+		quantity = item[1].to_i
+		product = Product.find(product_id)
+		order.order_items.create(product: product, quantity: quantity) if product
+	end
+
+	erb :cart
+
 end
 
 def parse_orders_input orders_input
