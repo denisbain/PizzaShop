@@ -1,6 +1,3 @@
-function cart_clear() {
-    window.localStorage.clear()
-}
 
 function add_to_cart(id)
 {
