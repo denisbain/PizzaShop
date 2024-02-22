@@ -11,7 +11,7 @@ function add_to_cart(id)
     window.localStorage.setItem(key, x);
 
     //Вывод количества item'ов в корзине
-    alert('Items in your cart: ' + get_number_of_items());
+    // alert('Items in your cart: ' + get_number_of_items());
 
     update_orders_input();
     update_orders_button();
@@ -66,6 +66,10 @@ function cart_get_orders()
 
 function cancel_order()
 {
-    alert('aaa')
+    window.localStorage.clear();
+
+    update_orders_input();
+    update_orders_button();
+
     return false;
 }
